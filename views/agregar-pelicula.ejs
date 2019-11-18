@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/grid.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Listado de Películas</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-bar">
+                <div class="row nav">
+                    <div class="nav-element">
+                        <h1><a href="/peliculas/fecha">Listado de Películas</a></h1>
+                    </div>
+                    <div class="nav-element buscar-por">
+                        <h3>Agrega Película </h3>
+
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <section class="row">
+
+
+
+        <div class="row">
+            <div class="agregar">
+                <% if (error != '') { %>
+                    <h2 style="color: red; text-align: center;"><%= error %></h2>
+                <% } %>
+                    <form action="/peliculas/agregarPelicula" method="POST">
+                        <div class="row">
+                            <label class="col span-1-of-3" for="titulo">Título:</label>
+                            <input class="col span-2-of-3" type="text" id="titulo" name="titulo" required maxlength="50">
+                        </div>
+                        <div class="row">
+                            <label class="col span-1-of-3" for="duracion">Duración:</label>
+                            <input class="col span-2-of-3" type="number" id="duracion" name="duracion"
+                                placeholder="minutos" min="1" required>
+                        </div>
+                        <div class="row">
+                            <label class="col span-1-of-3" for="categoria">Categoria:</label>
+                            <select class="col span-2-of-3" id="categoria" name="categoria">
+                                <option value="Acción">Acción</option>
+                                <option value="Amor">Amor</option>
+                                <option value="Terror">Terror</option>
+                            </select>
+                        </div>
+                        <div class="director row">
+                            <label class="col span-1-of-3" for="director">Director:</label>
+                            <input class="col span-2-of-3" type="text" id="director" name="director" required maxlength="30">
+                        </div>
+                        <div class="protagonistas row">
+                            <label class="col span-1-of-3" for="protagonistas">Protagonistas:</label>
+                            <input class="col span-2-of-3" type="text" id="protagonistas" name="protagonistas" required maxlength="30">
+                            <div class="row">
+                                <button class="botonAgregarProtagonista btn2" style="font-size: 70%;" type="button" id="agregar-protagonista">Agregar
+                                    otro
+                                    protagonista</button>
+                            </div>
+                        </div>
+                        <div class="url row">
+                            <label class="col span-1-of-3" for="img">Url de imagen:</label>
+                            <input class="col span-2-of-3" type="url" id="img" name="img">
+                        </div>
+                        <div class="flex">
+                            <button class="btn2 verde" type="submit">Guardar pelicula</button>
+                        </div>
+                    </form>
+            </div>
+
+    </section>
+
+
+
+
+
+
+    <script src="../js/agregar-pelicula.js"></script>
+</body>
+
+</html>

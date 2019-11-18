@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../public/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <title>Listado de Peliculas</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="row nav">
+                <h1>Listado de Peliculas</h1>
+                <!--
+                <div class="dropdown">
+                    <div class="dropdown-visible">
+                        <button class="dropbtn">Buscar por</button>
+                        <ion-icon size="large" name="arrow-dropdown"></ion-icon>
+                    </div>
+                    <div class="dropdown-content">
+                        <a class="active" href="#">Fecha</a>
+                        <a href="#">Título</a>
+                        <a href="#">Director</a>
+                        <a href="#">Categoría</a>
+                    </div>
+                </div>
+            -->
+            <h4>Buscar por </h4>
+            <select onchange="window.open(this.value,'_self');">
+                    <option value="/peliculas"> <a href="rt">Fecha</a> </option>
+                    <option value="titulo">Título</option>
+                    <option value="director">Director</option>
+                    <option value="categoria">Categoría</option>
+                  </select>
+
+                <div class="agregar-pelicula">
+                    <button class="btn">Agregar Pelicula</button>
+                </div>
+            </div>
+
+
+        </nav>
+    </header>
+    <section class="section-peliculas ">
+        <div class="row peliculas">
+
+            <div class="pelicula">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/515JnWohHTL.jpg">
+                <h3>Back to the Future</h3>
+                <h4>Acción</h4>
+            </div>
+            <div class="pelicula">
+                <img src="">
+                <h3>Back to the Future</h3>
+                <h4>Acción</h4>
+            </div>
+            <div class="pelicula">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/515JnWohHTL.jpg">
+                <h3>Back to the Future</h3>
+                <h4>Acción</h4>
+            </div>
+            <div class="pelicula">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/515JnWohHTL.jpg">
+                <h3>Back to the Future</h3>
+                <h4>Acción</h4>
+            </div>
+            <div class="pelicula">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/515JnWohHTL.jpg">
+                <h3>Back to the Future</h3>
+                <h4>Acción</h4>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

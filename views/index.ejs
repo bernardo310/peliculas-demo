@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/grid.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <title>Listado de Películas </title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-bar">
+                <div class="row nav">
+                    <div class="nav-element">
+                        <h1><a href="/peliculas/fecha">Listado de Películas</a></h1>
+                    </div>
+                    <div class="nav-element buscar-por">
+                        <h3>Buscar por </h3>
+                        <select class="select" onchange="window.open(this.value,'_self');">
+                            <option selected value="/peliculas/fecha">Fecha Agregada</option>
+                            <option value="/peliculas/titulo">Título</option>
+                            <option value="/peliculas/director">Director</option>
+                            <option value="/peliculas/categoria">Categoría</option>
+                        </select>
+                    </div>
+
+                    <div class="agregar-pelicula nav-element">
+                        <a href="/peliculas/agregar-pelicula" class="btn">Agregar Película</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+
+
+    <% if (peliculas.length > 0) { %>
+    <section class="section-peliculas ">
+        <div class="row peliculas">
+            <% for (let pelicula of peliculas) { %>
+
+            <div class="pelicula">
+                <a href="<%= pelicula._id %>">
+                    <img src="<%= pelicula.img %>">
+                    <h3><%= pelicula.titulo %></h3>
+                    <h4><%= pelicula.categoria %></h4>
+                </a>
+            </div>
+
+            <% } %>
+        </div>
+    </section>
+    <% } else { %>
+    <h1>No hay películas registradas.</h1>
+    <% } %>
+
+
+
+</body>
+<% if(borrado == true) { %>
+    <script>alert("Se ha borrado la pelicula exitosamente"); window.location.href = "http://localhost:8080/peliculas/fecha";    </script>  
+  <% } %>
+</html>

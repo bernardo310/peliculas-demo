@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
+    <%- include('includes/cssStyles.ejs') %>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+    <title>Listado de Películas</title>
+</head>
+
+<body>
+    <header>
+            <nav>
+                    <div class="nav-bar">
+                        <div class="row nav">
+                            <div class="nav-element">
+                                <h1><a href="/peliculas/fecha">Listado de Películas</a></h1>
+                            </div>
+                            <div class="nav-element buscar-por">
+                                    <h3>Buscar por </h3>
+                                    <select class="select" onchange="window.open(this.value,'_self');">
+                                    <option value="/peliculas/fecha">Fecha Agregada</option>
+                                    <option value="/peliculas/titulo">Título</option>
+                                    <option selected value="/peliculas/director">Director</option>
+                                    <option value="/peliculas/categoria">Categoría</option>
+                                </select>
+                            </div>
+        
+                            <div class="agregar-pelicula nav-element">
+                                <a href="/peliculas/agregar-pelicula" class="btn">Agregar Película</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+    </header>
+
+    <div class="row">
+            <form id="search" onsubmit="buscar()" method="GET">
+                    <input class="search-bar" type="text" placeholder="Buscar director.." name="search">
+                    <button class="btn" type="submit">
+                        <ion-icon name="search"></ion-icon>
+                    </button>
+                </form>
+    </div>
+
+    <% if (peliculas.length > 0) { %>
+        <section class="section-peliculas ">
+            <div class="row peliculas">
+        <% for (let pelicula of peliculas) { %>
+            
+        <div class="pelicula">
+            <a href="/peliculas/<%= pelicula._id %>">
+                <img src="<%= pelicula.img %>">
+                <h3><%= pelicula.titulo %></h3>
+                <h4><%= pelicula.director %></h4>
+            </a>
+        </div>
+
+        <% } %>
+    </div>
+</section>
+<% } else { %>
+<h1>No hay peliculas registradas.</h1>
+<% } %>
+
+<script>
+        function buscar() {
+            var url = 'http://localhost:8080/peliculas/director/' + document.getElementsByName("search")[0].value;
+            document.getElementById('search').action = url;
+        }
+    </script>
+</body>
+
+</html>
