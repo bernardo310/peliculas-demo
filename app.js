@@ -24,7 +24,7 @@ app.use((req, res, next) => {
     res.redirect('/peliculas/fecha');
 })
 
-mongoose.connect('mongodb+srv://bernardo:ErQO9E1BsWe4sfz2@cluster0-fyvkx.mongodb.net/peliculas?retryWrites=true&w=majority', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true })
 .then(result => {
     console.log('mongodb connected')
     app.listen(8080);
